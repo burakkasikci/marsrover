@@ -46,7 +46,7 @@ namespace Bilgetech_test
             {
                 Console.WriteLine("Oluşturulacak alan boyutunu XY şeklinde giriniz : ");
                 input = Console.ReadLine();
-            } while ((int.TryParse(input, out maxArea) == false) || maxArea < 10 || maxArea > 100);
+            } while (!(int.TryParse(input, out maxArea)) || maxArea < 10 || maxArea > 100);
 
             xArea = Convert.ToInt32(input.Substring(0, 1));
             yArea = Convert.ToInt32(input.Substring(1, 1));
@@ -69,10 +69,10 @@ namespace Bilgetech_test
                 if (readValue.Count() != 3)
                     resume = false;
 
-                if (resume && (int.TryParse(readValue[0].ToString(), out tempValue) == false) || tempValue > xArea)
+                if (resume && (!int.TryParse(readValue[0].ToString(), out tempValue)) || tempValue > xArea)
                     resume = false;
 
-                if (resume && (int.TryParse(readValue[1].ToString(), out tempValue) == false) || tempValue > yArea)
+                if (resume && (!int.TryParse(readValue[1].ToString(), out tempValue)) || tempValue > yArea)
                     resume = false;
 
                 if (resume)
@@ -90,7 +90,7 @@ namespace Bilgetech_test
                         }
                     }
                 }
-            } while (resume == false);
+            } while (!resume);
 
             modelList.Add(new RoverEntity()
             {
@@ -127,7 +127,7 @@ namespace Bilgetech_test
                         }
                     }
                 }
-            } while (resume == false);
+            } while (!resume);
 
         }
         #endregion
